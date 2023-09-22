@@ -1,0 +1,28 @@
+<style>
+  
+    h1, div {
+        text-align: center;
+        padding: 3px;
+    }
+    h1{
+        padding-top:100px;
+    }
+</style>
+<h1> Edit an Author </h1>
+<%= form_for @author do |f| %>
+    <div class="form-group">
+        <%= f.text_field :name, placeholder: @author.name %>
+    </div>
+    <div class="form-group">
+        <%= f.text_field :nationality, placeholder: @author.nationality %>
+    </div>
+    <div class="form-group">
+        <%= f.text_field :age, placeholder: @author.age %>
+    </div>
+    <div class="form-group">
+        <%= f.text_field :alive, placeholder: @author.alive %>
+    </div>  
+    <div class="form-group"> 
+        <%= f.submit class: "btn btn-block btn-success" %>
+    </div>  
+<% end %>

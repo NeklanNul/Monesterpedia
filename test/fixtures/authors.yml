@@ -2,12 +2,12 @@
 
 one:
   name: MyString
-  year: 1
-  genre: MyString
-  author: one
+  nationality: MyString
+  age: 1
+  alive: MyString
 
 two:
   name: MyString
-  year: 1
-  genre: MyString
-  author: two
+  nationality: MyString
+  age: 1
+  alive: MyString

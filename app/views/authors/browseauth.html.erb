@@ -1,0 +1,43 @@
+    <style>
+        table{
+            object-position: 50% 50%;
+        }
+        table, th, td{
+            border: 1px solid black;
+            padding: 10px;
+            
+        }
+        h1, h2{
+            text-align: center;
+            padding: 3px;
+        }
+    </style>
+
+
+<h1> Browse Authors? </h1>
+<h2> You wanna browse Authors? </h2>
+<% @authors = Author.all %>
+
+  <table>
+
+    <thead>
+     <tr>
+        <th>Name</th>
+        <th>Nationality</th>
+        <th>Age</th>
+        <th>Alive?</th>
+        <th>Edit</th>
+      </tr>
+    </thead>
+  <tbody>
+   <% @authors.each do |author| %>
+     <tr>
+      <td><%= author.name %></td>
+      <td><%= author.nationality %></td>
+      <td><%= author.age %></td>
+      <td><%= author.alive %></td>
+      <td><%= button_to "Edit", "editauth", method: :get , params:{id: author.id} %></td>     
+      <td><%= button_to "Delete", "delauth", method: :post , params:{id: author.id} %></td> 
+    </tr>
+   <% end %>
+  </tbody>

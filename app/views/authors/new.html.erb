@@ -1,0 +1,30 @@
+
+<style>
+  
+    h1, div {
+        text-align: center;
+        padding: 3px;
+    }
+    h1{
+        padding-top:100px;
+    }
+</style>
+<h1> Add an Author? </h1>
+<%= form_for @author do |f| %>
+    <div class="form-group">
+        <%= f.text_field :name, placeholder: "Name of Author" %>
+    </div>
+    <div class="form-group">
+        <%= f.text_field :nationality, placeholder: "Nationality of Author" %>
+    </div>
+    <div class="form-group">
+        <%= f.text_field :age, placeholder: "Age of Author" %>
+    </div>
+    <div class="form-group">
+        <%= f.text_field :alive, placeholder: "Is the Author still alive?" %>
+    </div>
+    <div class="form-group"> 
+        <%= f.submit class: "btn btn-block btn-success" %>
+    </div>   
+<% end %>
+<%= link_to "Back", "browseauth" %>
