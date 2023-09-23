@@ -1,0 +1,33 @@
+<style>
+  
+    h1, div {
+        text-align: center;
+        padding: 3px;
+    }
+    h1{
+        padding-top:100px;
+    }
+</style>
+<h1> Edit a Book </h1>
+<%= form_for @book do |f| %>
+    <div class="form-group">
+   
+        <%= f.text_field :name, placeholder: @book.name %>
+    </div>
+    <div class="form-group">
+        <%= f.text_field :year, placeholder: @book.year %>
+    </div>
+   <div class="form-group">
+    <%= "Genre:" %>
+        <%= f.select :genre, ["Mystery", "Thriller", "Horror", "Science Fiction", "Fantasy"], placeholder: @book.genre %>
+    </div>
+     <div class="form-group">
+      <%= "Author:" %>
+        <% author = Author.find_by_id(@book.author_id) %> 
+        <%= f.select :author_id, options_from_collection_for_select(@author, "id", "name"), placeholder: author.name %> 
+    </div>
+    <div class="form-group"> 
+        <%= f.submit class: "btn btn-block btn-success" %>
+    </div>  
+<% end %>
+

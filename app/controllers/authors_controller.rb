@@ -1,6 +1,5 @@
 class AuthorsController < ApplicationController
     def index
-        @authors = Author.all
     end
     def new
         @author = Author.new
@@ -22,17 +21,13 @@ class AuthorsController < ApplicationController
             redirect_to :browseauth
         end
     end
-    def delete
+    def destroy
         @author = Author.where(id: params[:id]).first
-        if @author.delete
-            redirect_to authors_path
+
+        if @author.destroy
+            redirect_to :browseauth
         end
     end
-
-    def browseauth
-        @authors = Author.all
-    end
-
     private
     def my_params
         params.require(:author).permit(:name, :nationality, :age, :alive)

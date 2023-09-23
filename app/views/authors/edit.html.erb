@@ -20,9 +20,10 @@
         <%= f.text_field :age, placeholder: @author.age %>
     </div>
     <div class="form-group">
-        <%= f.text_field :alive, placeholder: @author.alive %>
-    </div>  
+        <%= f.select :alive, ["Alive", "Dead"]%>
+    </div>
     <div class="form-group"> 
         <%= f.submit class: "btn btn-block btn-success" %>
     </div>  
 <% end %>
+

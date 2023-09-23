@@ -1,0 +1,45 @@
+    <style>
+        table, th, td{
+            border: 1px solid black;
+            padding: 10px;
+            
+        }
+        h1, h2{
+            text-align: center;
+            padding: 3px;
+        }
+    </style>
+
+
+<h1> Browse Monsters? </h1>
+<h2> You wanna browse Monsters? </h2>
+<% @monsters = Monster.all %>
+
+  <table>
+
+    <thead>
+     <tr>
+        <th>Name</th>
+        <th>Origin</th>
+        <th>Description</th>
+        <th>Book</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+  <tbody>
+   <% @monsters.each do |monster| %>
+     <tr>
+      <td><%= monster.name %></td>
+      <td><%= monster.origin %></td>
+      <td><%= monster.description %></td>
+      <td>
+       <% book = Book.find_by_id(monster.book_id) %> 
+       <%= book.name %> 
+     
+      </td>
+      <td><%= button_to "Edit", "editmon", method: :get , params:{id: monster.id} %></td>     
+      <td><%= button_to "Delete", "delmon", method: :post , params:{id: monster.id} %></td> 
+    </tr>
+   <% end %>
+  </tbody>

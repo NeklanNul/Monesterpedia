@@ -1,0 +1,48 @@
+    <style>
+        table{
+            object-position: 50% 50%;
+        }
+        table, th, td{
+            border: 1px solid black;
+            padding: 10px;
+            
+        }
+        h1, h2{
+            text-align: center;
+            padding: 3px;
+        }
+    </style>
+
+
+<h1> Browse Books? </h1>
+<h2> You wanna browse Books? </h2>
+<% @books = Book.all %>
+
+  <table>
+
+    <thead>
+     <tr>
+        <th>Name</th>
+        <th>Year</th>
+        <th>Genre</th>
+        <th>Author</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+  <tbody>
+   <% @books.each do |book| %>
+     <tr>
+      <td><%= book.name %></td>
+      <td><%= book.year %></td>
+      <td><%= book.genre %></td>
+      <td>
+      <% author = Author.find_by_id(book.author_id) %> 
+       <%= author.name %> 
+     
+      </td>
+      <td><%= button_to "Edit", "editbook", method: :get , params:{id: book.id} %></td>     
+      <td><%= button_to "Delete", "delbook", method: :post , params:{id: book.id} %></td> 
+    </tr>
+   <% end %>
+  </tbody>
