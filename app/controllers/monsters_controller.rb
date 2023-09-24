@@ -11,8 +11,6 @@ class MonstersController < ApplicationController
         @monster = Monster.new(monster_params)
         if @monster.save
             redirect_to monsters_path
-        else
-           
         end
     end
     def edit
@@ -32,6 +30,11 @@ class MonstersController < ApplicationController
             redirect_to :browsemon
         end
     end
+    def definition
+    end
+
+
+
     private
     def monster_params
         params.require(:monster).permit(:name, :origin, :description, :book_id)

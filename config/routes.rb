@@ -45,7 +45,7 @@ Rails.application.routes.draw do
   post "editmon", to: "monsters#edit"  
   post "delmon", to: "monsters#destroy"
   post "browsemon", to: "monsters#index"  
-  get "definition", to:"monster#definition"
+  get "definition", to:"monsters#definition"
 
 
 end

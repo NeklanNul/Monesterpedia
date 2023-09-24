@@ -7,7 +7,7 @@ class AuthorsController < ApplicationController
     def create
         @author = Author.new(my_params)
         if @author.save
-            redirect_to authors_path
+            redirect_to :browseauth
         else
            
         end

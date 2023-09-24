@@ -1,5 +1,7 @@
 <style>
-  
+    body {
+        background-color: #FFCCCB;
+    }
     h1, div {
         text-align: center;
         padding: 3px;
@@ -17,7 +19,7 @@
         <%= f.text_field :origin, placeholder: @monster.origin %>
     </div>
     <div class="form-group">
-        <%= f.text_field :description, placeholder: @monster.description %>
+        <%= f.text_area :description, placeholder: @monster.description %>
     </div>
     <div class="form-group">
       <%= "Book:" %>
